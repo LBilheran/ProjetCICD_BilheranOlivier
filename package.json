@@ -8,18 +8,20 @@
     "lint": "npx eslint ./src/",
     "test": "npx jest ./src/",
     "start": "npm run build && node dist/index.js",
-    "start-db": "docker container run -d --name vehicle-database -e POSTGRES_USER=vehicle -e POSTGRES_PASSWORD=vehicle -e POSTGRES_DB=vehicle -p 5432:5432 postgis/postgis:16-3.4-alpine",
-    "stop-db": "docker container rm -f vehicle-database"
+    "start-db": "sudo docker container run -d --name vehicle-database -e POSTGRES_USER=vehicle -e POSTGRES_PASSWORD=vehicle -e POSTGRES_DB=vehicle -p 5432:5432 postgis/postgis:16-3.4-alpine",
+    "stop-db": "sudo docker container rm -f vehicle-database"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.16.0",
+    "@testcontainers/postgresql": "^10.14.0",
     "@types/eslint__js": "^8.42.3",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.2",
     "@types/pg": "^8.11.10",
+    "@types/supertest": "^6.0.2",
     "eslint": "^9.16.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
