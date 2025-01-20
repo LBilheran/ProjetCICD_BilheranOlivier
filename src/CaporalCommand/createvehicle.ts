@@ -3,7 +3,6 @@
 import { program } from '@caporal/core';
 import { stringify } from 'querystring';
 
-
 program
   .command("add", "ajout d'un véhicule à la DB")
   .option("--code <code>", "code de 4 caractères")
@@ -45,4 +44,5 @@ program
     }
   });
 
-export { program };
+program.run();
+  
