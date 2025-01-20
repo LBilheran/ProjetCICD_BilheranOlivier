@@ -1,7 +1,6 @@
 #!/usr/bin/env ts-node
 
 import { program } from '@caporal/core';
-import { stringify } from 'querystring';
 
 program
   .command("add", "ajout d'un véhicule à la DB")
