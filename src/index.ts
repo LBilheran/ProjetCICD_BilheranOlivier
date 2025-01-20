@@ -1,6 +1,9 @@
 import { connectDb, dbConfigFromEnv } from "./database";
 import { setupApp } from "./app";
+import { program } from "@caporal/core";
+import { program as AddProg } from "./CaporalCommand/createvehicle";
 
+export const port = process.env.PORT 
 async function main() {
   let port = 8080;
 
@@ -14,5 +17,9 @@ async function main() {
     console.log(`Server is running on port ${port.toString()}`);
   })
 }
+
+AddProg;
+
+program.run();
 
 main().catch((e: unknown) => { console.error(`Something went wrong ${e as string}`); });
