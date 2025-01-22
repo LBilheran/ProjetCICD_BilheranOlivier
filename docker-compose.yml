@@ -1,0 +1,47 @@
+version: "3.8"
+services:
+  app:
+    build: ./VehiculeServer
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_DATABASE: vehicle
+      DB_USER: vehicle
+      DB_PASSWORD: vehicle
+      PORT: 3000
+    networks:
+      - vehicle-network
+    depends_on:
+      - database
+    restart: unless-stopped
+
+  database:
+    image: postgis/postgis:16-3.4-alpine
+    container_name: vehicle-database
+    environment:
+      POSTGRES_USER: vehicle
+      POSTGRES_PASSWORD: vehicle
+      POSTGRES_DB: vehicle
+    ports:
+      - "5432:5432"
+    networks:
+      - vehicle-network
+
+  tool:
+    build: .
+    tty: true
+    environment:
+    - API_HOST=app
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    networks:
+      - vehicle-network
+    depends_on:
+      - app
+
+networks:
+  vehicle-network:
+    driver: bridge

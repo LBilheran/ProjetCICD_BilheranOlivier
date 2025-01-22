@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import { program } from '@caporal/core';
+const dbHost = process.env.DB_HOST || 'localhost';
+const dbPort = process.env.DB_PORT || '5432';
 
 program
   .command("add", "ajout d'un véhicule à la DB")
@@ -15,7 +17,7 @@ program
       return;
     }
 
-    const endpoint = `http://localhost:${opts.port}/vehicles`;
+    const endpoint = `http://${dbHost}:${opts.port}/vehicles`;
     const vehicleData = {
       shortcode: opts.code,
       battery: opts.charge,
@@ -51,7 +53,7 @@ program
       return;
     }
 
-    const endpoint = `http://localhost:${opts.port}/vehicles`;
+    const endpoint = `http://${dbHost}:${opts.port}/vehicles`;
 
     try {
       const response = await fetch(endpoint);
