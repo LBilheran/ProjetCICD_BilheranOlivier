@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
-    "start": "npm run build && node dist/VehiculeServer/index.js",
+    "start": "npm run build && chmod +x dist/CaporalCommand/index.js && node dist/VehiculeServer/index.js",
     "start-db": "sudo docker container run -d --name vehicle-database -e POSTGRES_USER=vehicle -e POSTGRES_PASSWORD=vehicle -e POSTGRES_DB=vehicle -p 5432:5432 postgis/postgis:16-3.4-alpine",
     "stop-db": "sudo docker container rm -f vehicle-database",
     "lint": "npx eslint ./src/",
