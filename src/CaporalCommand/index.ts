@@ -87,7 +87,7 @@ program
           "Content-Type": "application/json",
         }
       })
-      const result = await apiResponse;
+
       if (!apiResponse.ok) {
         throw new Error(`HTTP error! status: ${apiResponse.status}`);
       }
