@@ -1,8 +1,8 @@
 # ProjetCICD_BilheranOlivier
 
+npm install
 npm install -g
 
-npm run build
 npm run start-db
 PORT=3000 npm run start
 
