@@ -67,7 +67,38 @@ program
     } catch (error) {
       log.error('Error:', error);
     }
+  })
+
+  .command("delete", "delete un véhicule selon son ID")
+  .option("--id <ID>", "ID du véhicule à détruire")
+  .option("-p, --port <port>", "Port du serveur à contacter")
+  .action(async ({ logger: log, options: opts }) => {
+    if (!opts.port || !opts.id) {
+      log.error("Error: Missing required options.");
+      return;
+    }
+
+    const endpoint = `http://localhost:${opts.port}/vehicles/${opts.id}`;
+
+    try {
+      const apiResponse = await fetch(endpoint, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      })
+
+      if (!apiResponse.ok) {
+        throw new Error(`HTTP error! status: ${apiResponse.status}`);
+      }
+      else {
+        log.info("Vehicle deleted successfully");
+      }
+    } catch (error) {
+      log.error('Error:', error);
+    }
   });
 
+      
 program.run();
   
