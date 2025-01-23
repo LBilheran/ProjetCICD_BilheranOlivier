@@ -11,14 +11,11 @@ Une image Docker est disponible mais elle ne permet pas de choisir le serveur su
 
 ## Version Manuelle
 
-### Installation
-
+- Installation :
 ```bash
 npm install
 npm install -g
 ```
-
-### Utilisation
 
 - Démarrer la base de donnée :
 ```bash
@@ -46,13 +43,10 @@ tool delete --id 1 -p 3000
 
 ## Version Docker
 
-### Installation
-
+- Installation :
 ```bash
 docker-compose up
 ```
-
-### Utilisation
 
 - Ajouter un véhicule :
 ```bash
