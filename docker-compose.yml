@@ -1,0 +1,53 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: VehiculeServer
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_USER: vehicle
+      DB_PASSWORD: vehicle
+      DB_NAME: vehicle
+    depends_on:
+      - database
+    networks:
+      - vehicle-network
+    restart: unless-stopped
+
+  database:
+    image: postgis/postgis:16-3.4-alpine
+    container_name: vehicle-database
+    environment:
+      POSTGRES_USER: vehicle
+      POSTGRES_PASSWORD: vehicle
+      POSTGRES_DB: vehicle
+    ports:
+      - "5432:5432"
+    networks:
+      - vehicle-network
+    restart: unless-stopped
+
+  tool:
+    build:
+      context: .
+      dockerfile: Dockerfile.tool
+    container_name: tool
+    tty: true
+    environment:
+      DB_HOST: vehicle-database
+      DB_PORT: 5432
+      API_HOST: VehiculeServer
+    ports:
+      - "8080:8080"
+    networks:
+      - vehicle-network
+    depends_on:
+      - server
+
+networks:
+  vehicle-network:
+    driver: bridge
