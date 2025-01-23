@@ -5,9 +5,13 @@
 
 ## Projet
 
-L'outil est un serveur qui permet de créer des véhicules et les enregistrer dans une base de données, mais également de les lister et de les supprimer.
-Les véhicules possèdent un code, une charge de batterie et des coordonnées (lat,long).
-Une image Docker est disponible mais elle ne permet pas de choisir le serveur sur lequel se déploît le serveur (8080).
+- L'outil est un serveur qui permet, à l'aide d'une base de données, de :
+    - créer des véhicules
+    - lister les véhicules
+    - supprimer des véhicules
+
+- Les véhicules possèdent un code, une charge de batterie et des coordonnées (lat,long).
+- Une image Docker est disponible mais elle ne permet pas de choisir le serveur sur lequel se déploît le serveur (8080).
 
 ## Version Manuelle
 
