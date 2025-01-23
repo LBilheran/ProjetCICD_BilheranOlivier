@@ -2,9 +2,8 @@ services:
   server:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.server
     container_name: VehiculeServer
-    command: ["dist/VehiculeServer/index.js"]
     ports:
       - "3000:3000"
     environment:
@@ -17,6 +16,7 @@ services:
       - database
     networks:
       - vehicle-network
+    restart: unless-stopped
 
   database:
     image: postgis/postgis:16-3.4-alpine
@@ -29,23 +29,24 @@ services:
       - "5432:5432"
     networks:
       - vehicle-network
+    restart: unless-stopped
 
   tool:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.tool
     container_name: tool
-    command: ["dist/src/index.js"]
     tty: true
     environment:
       DB_HOST: vehicle-database
       DB_PORT: 5432
       API_HOST: VehiculeServer
+    ports:
+      - "8080:8080"
     networks:
       - vehicle-network
     depends_on:
       - server
-      - database
 
 networks:
   vehicle-network:

@@ -8,5 +8,6 @@ RUN npm run build
 FROM node:20-alpine3.19 AS runtime
 WORKDIR /app
 COPY --from=build /app /app
+RUN npm install
 
-ENTRYPOINT ["node"]
+ENTRYPOINT ["node", "/app/dist/src/index.js"]
