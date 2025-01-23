@@ -3,7 +3,7 @@
 ![Build Status](https://github.com/LBilheran/ProjetCICD_BilheranOlivier/actions/workflows/compilation.yml/badge.svg?branch=staging)
 ![Commit Status](https://img.shields.io/github/commit-activity/t/LBilheran/ProjetCICD_BilheranOlivier?)
 
-## Projet
+## Projet
 
 - L'outil est un serveur qui permet, à l'aide d'une base de données, de :
     - créer des véhicules
@@ -45,7 +45,7 @@ tool list -p 3000
 tool delete --id 1 -p 3000
 ```
 
-## Version Docker
+## Version Docker
 
 - Installation :
 ```bash
