@@ -3,22 +3,22 @@
 ![Build Status](https://github.com/LBilheran/ProjetCICD_BilheranOlivier/actions/workflows/compilation.yml/badge.svg?branch=staging)
 ![Commit Status](https://img.shields.io/github/commit-activity/t/LBilheran/ProjetCICD_BilheranOlivier?)
 
-### Projet
+## Projet
 
 L'outil est un serveur qui permet de créer des véhicules et les enregistrer dans une base de données, mais également de les lister et de les supprimer.
 Les véhicules possèdent un code, une charge de batterie et des coordonnées (lat,long).
 Une image Docker est disponible mais elle ne permet pas de choisir le serveur sur lequel se déploît le serveur (8080).
 
-### Version Manuelle
+## Version Manuelle
 
-## Installation
+### Installation
 
 ```bash
 npm install
 npm install -g
 ```
 
-## Utilisation
+### Utilisation
 
 - Démarrer la base de donnée :
 ```bash
@@ -44,17 +44,15 @@ tool list -p 3000
 tool delete --id 1 -p 3000
 ```
 
-### Version Docker
+## Version Docker
 
-
-
-## Installation
+### Installation
 
 ```bash
 docker-compose up
 ```
 
-## Utilisation
+### Utilisation
 
 - Ajouter un véhicule :
 ```bash
