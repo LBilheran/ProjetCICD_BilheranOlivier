@@ -1,11 +1,22 @@
 # ProjetCICD_BilheranOlivier
 
-npm install -g
+A LA MAIN :
 
-npm run build
+npm install
+
+npm install -g
+(Fais en sorte que le raccourci tool fonctionne bien)
+
 npm run start-db
 PORT=3000 npm run start
 
-VehicleServer add --code abcd --charge 12 --longitude 43.43 --latitude 53.43 --p 3000
+tool add --code abcd --charge 12 --lng 43.43 --lat 53.43 -p 8080
 
-VehicleServer list -p 3000
+tool list -p 8080
+
+DOCKER IMAGE :
+
+docker-compose up
+
+docker-compose run tool add --code abcd --charge 12 --lng 43.43 --lat 53.43 -p 8080
+docker-compose run tool list -p 8080
