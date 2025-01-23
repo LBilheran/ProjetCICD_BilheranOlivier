@@ -79,7 +79,7 @@ program
       return;
     }
 
-    const endpoint = `http://localhost:${opts.port}/vehicles/${opts.id}`;
+    const endpoint = `http://${apiHost}:${opts.port}/vehicles/${opts.id}`;
 
     try {
       const apiResponse = await fetch(endpoint, {
