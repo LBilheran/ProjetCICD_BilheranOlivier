@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from '@caporal/core';
-const dbHost = process.env.DB_HOST || 'localhost';
-const dbPort = process.env.DB_PORT || '5432';
+const dbHost = process.env.DB_HOST || '127.0.0.1';
 
 program
   .command("add", "ajout d'un véhicule à la DB")
